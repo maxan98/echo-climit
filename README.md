@@ -2,7 +2,8 @@
 
 Echo-climit is a concurrency limiter middleware for [echo](https://github.com/labstack/echo/).
 
-This version is working with echo v3. Please checkout v2 branch if you want use session with echo v2.
+It allows exactly N requests (globally, per endpoint or per group) to be handled at given time.
+Can be useful when used with cache middleware and you want other request to wait for the one who will populate the cache so that you don't overflow db with heavy requests.
 
 ## Installation
 `go get github.com/maxan98/echo-climit`
