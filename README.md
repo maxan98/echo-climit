@@ -20,11 +20,14 @@ import (
 )
 
 func main() {
-	// Via Use, either global, or appy to existing group (when using multiple middlewares)
 	e := echo.New()
+
+	// Via Use, either global, or appy to existing group (when using multiple middlewares)
+	// 1 - number of parallel requests, time.Minute - wait time before cancelling the request by timeout	
 	e.Use(climit.New(1, time.Minute))
 
 	// On group creation
+	// 1 - number of parallel requests, time.Minute - wait time before cancelling the request by timeout	
 	g := e.Group("/group", climit.New(1, time.Minute))
 }
 
